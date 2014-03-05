@@ -1,27 +1,122 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container">
+	<div id="header_navbar" class="container">
+		<a href=""><%= image_tag("logo2.png", :alt => "", :id => "", a: "#") %></a>
 
-		<a class="btn btn-info navbar-btn navbar-right" href="#" role="button">S'inscrire</a>
+		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
+			<a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+				S'inscrire<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Entreprise</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Candidat</a></li>
+			</ul>
+		</div>
 
-		<form class="navbar-form form-inline navbar-right" role="form">
-			<div class="form-group">
-				<label class="sr-only" for="exampleInputEmail2">Email</label>
-				<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-			</div>
-			<div class="form-group">
-				<label class="sr-only" for="exampleInputPassword2">Password</label>
-				<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-			</div>
-			
-			<button type="submit" class="btn btn-default">Sign in</button>
-		</form>
-		
-		<ul class="list-inline navbar-text navbar-right">	
-			<li><a class="active" href="#">Blog</a></li>
-			<li><a class="" href="#">Newsletter</a></li>
-			<li><a class="" href="#">Poster une offre</a></li>
+		<div  class="connexion_button btn btn-default btn-lg navbar-btn navbar-right dropdown">
+			<a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+				Se connecter<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_entreprise">Entreprise</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_candidat">Candidat</a></li>
+			</ul>
+		</div>
+
+
+		<ul id="header_ul" class="list-inline navbar-text navbar-right">
+			<li><a href=<%=root_path%>><%= image_tag("home-icon2.png", :alt => "home", :id => "home_image") %></a></li>
+			<li><a class="header_link active" href="#">Blog</a></li>
+			<li><a class="header_link" href="#">Newsletter</a></li>
+			<li><a class="header_link" href="#">Poster une offre</a></li>
 		</ul>
 
 	</div>
 </nav>
 
+
+<!-- Modal entreprise-->
+<div class="modal fade" id="modal_connexion_entreprise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div id="first_modal_header" class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Connexion entreprise:</h4>
+			</div>
+
+			<div class="modal-body">
+				<div class="form_block">
+					<form method="post" action="#" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="input_email" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-8">
+								<input type="email" class="form-control" id="input_email" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="input_password" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control" id="input_password" placeholder="Password">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<a href="">Mot de passe oublié ?</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-info">Connexion</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Modal candidat-->
+<div class="modal fade" id="modal_connexion_candidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div id="first_modal_header" class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Connexion candidat:</h4>
+			</div>
+
+			<div class="modal-body">
+				<div class="form_block">
+					<form method="post" action="#" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="input_email" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-8">
+								<input type="email" class="form-control" id="input_email" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="input_password" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control" id="input_password" placeholder="Password">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<a href="">Mot de passe oublié ?</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-info">Connexion</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

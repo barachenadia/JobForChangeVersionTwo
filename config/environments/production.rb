@@ -77,4 +77,6 @@ JobForChange::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  #Rajouté avec Formtastic
+  config.assets.precompile += %w( ie6.css ie7.css )
 end

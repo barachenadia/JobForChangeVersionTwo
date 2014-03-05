@@ -1,6 +1,8 @@
 JobForChange::Application.routes.draw do
 
   root 'static_pages#home'
+
+  get '/connexion', to: 'static_pages#connexion'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

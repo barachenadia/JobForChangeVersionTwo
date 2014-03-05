@@ -1,15 +1,49 @@
 /*style.css*/
 
-/*Home page background image*/
+
+/*Top-navbar
+------------*/
+#header_navbar {
+  padding-top: 10px;
+}
+
+.connexion_button {
+  margin-left: 5px;
+  margin-right: 5px; 
+}
+
+#inscription_button {
+  color: white;
+}
+
+#se_connecter_button {
+  color: #413E3E;
+}
+
+#home_image {
+  padding-top: 0px !important;
+}
+
+#header_ul {
+  margin-top: 18px !important;
+}
+
+.header_link {
+  font-size: 18px;
+}
+
+
+/*Home page
+-----------*/
 img#change {
   /* Set rules to fill background */
   min-height: 100%;
   min-width: 1024px;
-	
+
   /* Set up proportionate scaling */
   width: 100%;
   height: auto;
-	
+
   /* Set up positioning */
   position: fixed;
   top: 0;
@@ -23,12 +57,93 @@ img#change {
   }
 }
 
+#home_row {
+  padding-top: 30px; 
+}
+
 #catchphrase {
-	text-align: center;
-	font-size: 25px;
+  text-align: left;
+  font-size: 50px;
+  color: white;
+  font-weight: ;
 }
 
-#newsletter {
-  position: absolute; bottom: 70px; right: 20px;
-
+#col_button {
+  padding-top: 20px;
 }
+
+#deposer_annonce {
+  margin-bottom: 20px;
+}
+
+.button_annonces {
+  font-size: 24px !important;
+ background-color: rgb(230, 125, 50) !important;
+ color: white !important;
+ border-color: grey !important;
+ box-shadow: 6px 6px 2px #353232 !important;
+}
+
+#row_newsletter {
+  margin-top: 115px;
+  margin-bottom: 90px;
+}
+
+#input_email {
+  font-size: 18px !important;
+}
+
+#footer {
+}
+
+
+/*Connexion page
+----------------*/
+.connexion_h2 {
+  text-align: center;
+}
+
+#connexion_row {
+  padding: 0px !important;
+}
+
+#signin_company {
+  margin: 0px !important;
+  background-color: #51C27C;
+  padding-bottom: 25px;
+  border-radius: 8px;
+}
+
+#signin_candidate {
+  margin: 0px !important;
+  background-color: #7EA7B4;
+  padding-bottom: 25px;
+  border-radius: 8px;
+}
+
+
+/*Modal de connexion
+--------------------*/
+#first_modal_header  {
+  background-color: #F4F3F3;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.form_block {
+  margin: 8px;
+  padding: 16px;
+  border:1px solid #E67D32;
+  border-radius: 6px;
+}
+
+/*centre les h3*/
+.connexion_h3 {
+  text-align: center;
+}
+
+#entreprise_modal {
+  background-color: ;
+  border-color: #E99C49;
+}
+

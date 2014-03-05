@@ -1,19 +1,30 @@
-<%= image_tag("change-ahead.jpg", :alt => "", :id => "change") %>
+<%= image_tag("nuages2.jpg", :alt => "", :id => "change") %>
 
-<div class="row">
-	<div class="col-md-12">
+<div id="home_row" class="row">
+
+	<div class="col-md-6">
 		<p id="catchphrase">Les meilleurs offres et les meilleurs candidats au même endroit !</p>
 	</div>
+
+	<div id="col_button" class="col-md-6">
+		<div class="col-md-8 col-md-offset-3">
+			<div>
+				<button id="deposer_annonce" type="button" class="button_annonces btn btn-default btn-lg btn-block">Déposer une annonce</button>
+			</div>
+			<div>
+				<button type="button" class="button_annonces btn btn-default btn-lg btn-block">Consulter les annonces</button>
+			</div>
+		</div>
+	</div><!--end col-md-6-->
+
+</div> <!--row end-->
+
+<div  id="row_newsletter" class="row">
+	<form role="form">
+		<div class="col-md-4">
+			<label id="input_email" for="input_email">Inscrivez vous à la newsletter</label>
+			<input type="email" class="form-control" id="input_email" placeholder="Enter email">
+		</div>
+	</form>
 </div>
 
-<div class="row">
-  <button type="button" class="col-md-3 col-md-offset-2 btn btn-default btn-lg">Déposer une annonce</button>
-  <button type="button" class="col-md-3 col-md-offset-2 btn btn-default btn-lg">Consulter les annonces</button>
-</div>
-
-<div  class="row">
-<form id="newsletter" role="form" class="col-md-5">
-    <label for="newsletter">Inscrivez vous à la newsletter</label>
-    <input type="email" class="form-control" id="newsletter" placeholder="Enter email">
-</form>
-</div>
