@@ -1,0 +1,15 @@
+<%= image_tag("nuages2.jpg", :alt => "", :id => "change") %>
+
+<div id="home_row" class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1> Mon profil </h1>
+		<p>test</p>
+		<p><%= current_candidate.firstname %></p>
+		<p><%= current_candidate.lastname %></p>
+		<p><%= current_candidate.email %></p>
+		<p><%= current_candidate.phone %></p>
+		<div  class="connexion_button btn btn-info btn-lg navbar-btn">
+			<%= link_to("Editer", edit_candidate_registration_path) %>
+		</div>
+	</div>
+</div>

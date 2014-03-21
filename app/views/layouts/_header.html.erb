@@ -1,18 +1,26 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
 	<div id="header_navbar" class="container">
-		<a href=""><%= image_tag("logo2.png", :alt => "", :id => "", a: "#") %></a>
+		<a href=<%=root_path%>><%= image_tag("logo2.png", :alt => "", :id => "", a: "#") %></a>
 
+		<% if candidate_signed_in? %>
 		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
 			<a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-				S'inscrire<span class="caret"></span>
+				<%= "Bonjour #{current_candidate.email}" %><span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Entreprise</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Profil', profil_candidate_registration_path) %></li>
 				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#myModal">Candidat</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Annonces Favorites</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Candidatures</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %></a></li>
 			</ul>
 		</div>
-
+		<% else %>
+		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
+			<%= link_to "Inscription gratuite !", new_candidate_registration_path, id: "inscription_button" %>
+		</div>
 		<div  class="connexion_button btn btn-default btn-lg navbar-btn navbar-right dropdown">
 			<a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
 				Se connecter<span class="caret"></span>
@@ -23,100 +31,89 @@
 				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_candidat">Candidat</a></li>
 			</ul>
 		</div>
-
-
+		<% end %>
 		<ul id="header_ul" class="list-inline navbar-text navbar-right">
 			<li><a href=<%=root_path%>><%= image_tag("home-icon2.png", :alt => "home", :id => "home_image") %></a></li>
 			<li><a class="header_link active" href="#">Blog</a></li>
 			<li><a class="header_link" href="#">Newsletter</a></li>
-			<li><a class="header_link" href="#">Poster une offre</a></li>
 		</ul>
+	</nav>
 
-	</div>
-</nav>
-
-
-<!-- Modal entreprise-->
-<div class="modal fade" id="modal_connexion_entreprise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div id="first_modal_header" class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Connexion entreprise:</h4>
-			</div>
-
-			<div class="modal-body">
-				<div class="form_block">
-					<form method="post" action="#" class="form-horizontal" role="form">
-						<div class="form-group">
-							<label for="input_email" class="col-sm-2 control-label">Email</label>
-							<div class="col-sm-8">
-								<input type="email" class="form-control" id="input_email" placeholder="Email">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="input_password" class="col-sm-2 control-label">Password</label>
-							<div class="col-sm-8">
-								<input type="password" class="form-control" id="input_password" placeholder="Password">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<a href="">Mot de passe oublié ?</a>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-info">Connexion</button>
-							</div>
-						</div>
-					</form>
+	<!-- Modal entreprise-->
+	<div class="modal fade" id="modal_connexion_entreprise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div id="first_modal_header" class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Connexion entreprise:</h4>
 				</div>
-			</div>
 
+				<div class="modal-body">
+					<div class="form_block">
+						<form method="post" action="#" class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="input_email" class="col-sm-2 control-label">Email</label>
+								<div class="col-sm-8">
+									<input type="email" class="form-control" id="input_email" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="input_password" class="col-sm-2 control-label">Password</label>
+								<div class="col-sm-8">
+									<input type="password" class="form-control" id="input_password" placeholder="Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<a href="">Mot de passe oublié ?</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-info">Connexion</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
-</div>
 
-<!-- Modal candidat-->
-<div class="modal fade" id="modal_connexion_candidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div id="first_modal_header" class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Connexion candidat:</h4>
-			</div>
+	<!-- Modal candidat-->
+	<div class="modal fade" id="modal_connexion_candidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div id="first_modal_header" class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Connexion candidat:</h4>
+				</div>
 
-			<div class="modal-body">
-				<div class="form_block">
-					<form method="post" action="#" class="form-horizontal" role="form">
+				<div class="modal-body">
+					<div class="form_block">
+						<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "form-horizontal") do |f| %>
 						<div class="form-group">
-							<label for="input_email" class="col-sm-2 control-label">Email</label>
-							<div class="col-sm-8">
-								<input type="email" class="form-control" id="input_email" placeholder="Email">
+							<div><%= f.label :email, :class => "col-sm-2 control-label" %></div>
+							<div class="col-sm-10">
+								<%= f.email_field :email, :id => "input_email", :class => "form-control", :autofocus => true %>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="input_password" class="col-sm-2 control-label">Password</label>
-							<div class="col-sm-8">
-								<input type="password" class="form-control" id="input_password" placeholder="Password">
+							<div><%= f.label :password, :class => "col-sm-2 control-label" %></div>
+							<div class="col-sm-10">
+								<%= f.password_field :password, :id => "input_password", :class => "form-control" %>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<a href="">Mot de passe oublié ?</a>
+								<%= f.submit "Sign in", :class => "btn btn-info" %>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-info">Connexion</button>
-							</div>
-						</div>
-					</form>
+						<% end %>
+						<%= render "candidates/shared/links" %>
+					</div>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
-</div>

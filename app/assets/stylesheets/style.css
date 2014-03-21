@@ -32,6 +32,26 @@
   font-size: 18px;
 }
 
+/*Modal de connexion
+--------------------*/
+#first_modal_header  {
+  background-color: #F4F3F3;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.form_block {
+  margin: 8px;
+  padding: 16px;
+  border:1px solid #E67D32;
+  border-radius: 6px;
+}
+
+/*centre les h3*/
+.connexion_h3 {
+  text-align: center;
+}
+
 
 /*Home page
 -----------*/
@@ -68,6 +88,11 @@ img#change {
   font-weight: ;
 }
 
+.col_title {
+  color: white;
+  text-align: center;
+}
+
 #col_button {
   padding-top: 20px;
 }
@@ -81,12 +106,16 @@ img#change {
  background-color: rgb(230, 125, 50) !important;
  color: white !important;
  border-color: grey !important;
- box-shadow: 6px 6px 2px #353232 !important;
+ box-shadow: 5px 5px 2px #353232 !important;
 }
 
 #row_newsletter {
   margin-top: 115px;
   margin-bottom: 90px;
+}
+
+#input_email {
+  color: #413E3E;
 }
 
 #input_email {
@@ -120,30 +149,3 @@ img#change {
   padding-bottom: 25px;
   border-radius: 8px;
 }
-
-
-/*Modal de connexion
---------------------*/
-#first_modal_header  {
-  background-color: #F4F3F3;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-
-.form_block {
-  margin: 8px;
-  padding: 16px;
-  border:1px solid #E67D32;
-  border-radius: 6px;
-}
-
-/*centre les h3*/
-.connexion_h3 {
-  text-align: center;
-}
-
-#entreprise_modal {
-  background-color: ;
-  border-color: #E99C49;
-}
-

@@ -1,7 +1,24 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
+	
+	include ApplicationHelper
 
-  def connexion
-  end
+
+	def home
+	end
+
+	def offres
+	end
+
+	def contact
+	end
+
+	def a_propos
+	end
+
+	def mentions_legales
+	end
+
+	def deposer_annonce
+	end
+
 end
