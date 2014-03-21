@@ -7,10 +7,10 @@
     <p><%= current_candidate.email %></p>
 
         <div  class="connexion_button btn btn-info btn-lg navbar-btn">
-      <%= link_to("Voir mon profil", profil_candidate_registration_path) %>
+      <%= link_to("Voir mon profil", '/profil' ) %>
     </div>
 
-    <%= form_for(resource, :as => resource_name, :url => candidate_registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
 

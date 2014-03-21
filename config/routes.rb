@@ -2,17 +2,19 @@ JobForChange::Application.routes.draw do
 
   root 'static_pages#home'
   
-  #devise_for :candidates
-  devise_for :candidates, controllers: { registrations: "candidates/registrations", passwords: "candidates/passwords", sessions: "candidates/sessions", confirmations: "candidates/confirmations" }
-  devise_scope :candidate do 
-    get "candidates/profil", :to => "candidates/registrations#profil", :as => "profil_candidate_registration"
-  end
+  devise_for :companies
+  devise_for :candidates
+  # devise_for :candidates, controllers: { registrations: "candidates/registrations", passwords: "candidates/passwords", sessions: "candidates/sessions", confirmations: "candidates/confirmations" }
+  # devise_scope :candidate do 
+  #   get "candidates/profil", :to => "candidates/registrations#profil", :as => "profil_candidate_registration"
+  # end
 
   get '/offres',            to: 'static_pages#offres'
   get '/contact',           to: 'static_pages#contact'
   get '/a_propos',          to: 'static_pages#a_propos'
   get '/mentions_legales',  to: 'static_pages#mentions_legales'
   get '/deposer_annonce',   to: 'static_pages#deposer_annonce'
+  get 'profil',            to: 'static_pages#profil'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

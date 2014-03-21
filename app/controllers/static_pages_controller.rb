@@ -21,4 +21,7 @@ class StaticPagesController < ApplicationController
 	def deposer_annonce
 	end
 
+	def profil
+	end
+
 end
