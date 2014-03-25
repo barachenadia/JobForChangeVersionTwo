@@ -16,4 +16,4 @@
 /tmp
 
 #Ignore the file where LinkedIn tokens are stored
-.env
+/.env
