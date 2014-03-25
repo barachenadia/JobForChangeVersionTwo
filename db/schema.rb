@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321115326) do
+ActiveRecord::Schema.define(version: 20140321185000) do
 
   create_table "candidates", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20140321115326) do
     t.string   "postal_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true

@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'formtastic'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-linkedin'
+#gem 'omniauth-linkedin-oauth2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -38,6 +41,8 @@ group :development do
   gem "better_errors"
   #permet d'avoir un shell dans la page d'erreur
   gem "binding_of_caller"
+  gem "pry-rails"
+  gem "quiet_assets"
 end
 
 # Use ActiveModel has_secure_password

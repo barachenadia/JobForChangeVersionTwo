@@ -8,13 +8,8 @@ class ApplicationController < ActionController::Base
   def devise_parameter_sanitizer
     if resource_class == Candidate
       Candidate::ParameterSanitizer.new(Candidate, :candidate, params)
-    else
-      super # Use the default one
-    end
-  end
-
-    def devise_parameter_sanitizer
-    if resource_class == Company
+    elsif
+      resource_class == Company
       Company::ParameterSanitizer.new(Company, :company, params)
     else
       super # Use the default one
