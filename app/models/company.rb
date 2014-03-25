@@ -9,5 +9,4 @@ class Company < ActiveRecord::Base
   		default_params.permit(:email, :phone, :postal_code, :password, :password_confirmation, :current_password)
   	end
   end
-
 end

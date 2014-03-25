@@ -4,7 +4,6 @@ JobForChange::Application.routes.draw do
   
   devise_for :companies
   devise_for :candidates, :controllers => { :omniauth_callbacks => "candidates/omniauth_callbacks" }
-
   devise_scope :candidate do
     get 'sign_out', :to => 'devise/sessions#destroy'
   end
