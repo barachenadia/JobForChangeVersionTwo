@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -38,12 +39,17 @@ group :doc do
 end
 
 group :development do
-  gem "better_errors"
+	gem "better_errors"
   #permet d'avoir un shell dans la page d'erreur
   gem "binding_of_caller"
   gem "pry-rails"
   gem "quiet_assets"
   gem 'dotenv-rails'
+end
+
+group :production do
+	gem 'pg', '0.15.1'
+	gem 'rails_12factor', '0.0.2'
 end
 
 # Use ActiveModel has_secure_password
