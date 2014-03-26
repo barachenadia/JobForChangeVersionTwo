@@ -251,5 +251,6 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  config.omniauth :linkedin, ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'], scope: 'r_fullprofile r_emailaddress r_network'
+  config.omniauth :linkedin, ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET'], scope: 'r_fullprofile r_emailaddress r_network' 
+  {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
 end

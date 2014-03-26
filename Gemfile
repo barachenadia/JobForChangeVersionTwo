@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -34,7 +35,7 @@ group :doc do
 end
 
 group :development do
-  gem "better_errors"
+	gem "better_errors"
   #permet d'avoir un shell dans la page d'erreur
   gem "binding_of_caller"
   gem "pry-rails"
