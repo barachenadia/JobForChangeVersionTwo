@@ -31,9 +31,15 @@
 			</ul>
 		</div>
 		<% else %>
+
 		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
-			<%= link_to "Inscription gratuite !", new_candidate_registration_path, id: "inscription_button" %>
+			<a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">Inscrivez vous gratuitement !<span class="caret"></span></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Candidat', new_candidate_registration_path) %></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Entreprise', new_company_registration_path) %></li>
 		</div>
+
 		<div  class="connexion_button btn btn-default btn-lg navbar-btn navbar-right dropdown">
 			<a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
 				Se connecter<span class="caret"></span>
