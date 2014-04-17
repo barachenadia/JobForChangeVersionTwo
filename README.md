@@ -8,3 +8,6 @@ Techniquement :
 * Devise avec OmniAuth (Facebook et LinkedIn)
 * Bootstrap
 * Dotenv pour gérer le chargement des variables d'environnement
+
+
+Site en ligne (version beta) http://jobforchange.herokuapp.com/
