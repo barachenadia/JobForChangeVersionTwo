@@ -1,6 +1,16 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
 	<div id="header_navbar" class="container">
+					
+							    			<!-- ==== LOGO  === -->
+								 
+		
 		<a href=<%=root_path%>><%= image_tag("logo2.png", :alt => "", :id => "", a: "#") %></a>
+
+		                                <!-- ==== end LOGO  === -->
+
+
+								                                        <!-- ===  navbar If candidate signin === -->
+						        
 
 		<% if candidate_signed_in? %>
 		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
@@ -17,6 +27,11 @@
 				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %></a></li>
 			</ul>
 		</div>
+                                                                         <!-- === end navbar if candidate signin === -->
+
+
+                                                                         <!-- ===  navbar if campany signin === -->
+
 		<% elsif company_signed_in? %>
 		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
 			<a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
@@ -30,6 +45,12 @@
 				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_company_session_path, method: :delete) %></a></li>
 			</ul>
 		</div>
+                                                                        <!-- === end navbar if campany signin === -->
+
+
+
+                                                                             <!-- ===  navbar page home === -->
+
 		<% else %>
 
 		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
@@ -51,12 +72,21 @@
 			</ul>
 		</div>
 		<% end %>
+
+		                                              
+		
 		<ul id="header_ul" class="list-inline navbar-text navbar-right">
 			<li><a href=<%=root_path%>><%= image_tag("home-icon2.png", :alt => "home", :id => "home_image") %></a></li>
 		</div>
 	</nav>
+                                                            <!-- ===  end navbar page home === -->                      
+	
 
-	<!-- Modal entreprise-->
+
+                                                            <!-- === modal signin  candidate && entreprise === -->
+	                                                        
+	                                                        <!--=== Modal entreprise ===-->
+	
 	<div class="modal fade" id="modal_connexion_company" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -85,8 +115,11 @@
 			</div>
 		</div>
 	</div>
+                                                                      <!--=== end Modal entreprise ===-->
+	                                                                 
 
-	<!-- Modal candidat-->
+	                                                                  <!--=== Modal candidat ===-->
+
 	<div class="modal fade" id="modal_connexion_candidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -116,3 +149,5 @@
 			</div>
 		</div>
 	</div>
+                                                               <!--=== end Modal candidat ===-->
+                                                               <!-- === end modal signin  candidate && entreprise === -->
