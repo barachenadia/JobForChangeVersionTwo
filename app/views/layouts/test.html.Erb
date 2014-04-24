@@ -1,0 +1,56 @@
+<div id="menu">
+<ul>
+  
+  <li><a href="#">Connexion</a>
+    <ul>
+      <li><a href="#myModal_candidat"  data-toggle="modal">Candidat</a></li>
+      <li><a href="#">Entreprise</a></li>
+     
+    </ul>
+  </li>
+
+  <li><a href="#">Inscription</a>
+    <ul>
+      <li><a > <%= link_to('Candidat', new_candidate_registration_path) %></a></li>
+      <li><a ><%= link_to('Entreprise', new_company_registration_path) %>  </a></li>
+      
+    </ul>
+  </li>
+  
+</ul>
+</div>
+
+<!-- Button HTML (to Trigger Modal) -->
+    
+    
+    <!-- Modal HTML -->
+    <div id="myModal_candidat" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content" style="margin-top:300px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Connexion</h4>
+                </div>
+                <div class="modal-body">
+                    <%= form_for(:company, :url => session_path(:company)) do |f| %>
+						<div><%= f.label :email %><br />
+							<%= f.email_field :email, :autofocus => true %>
+						</div>
+						<div><%= f.label :password %><br />
+							<%= f.password_field :password %>
+						</div>
+						<% if devise_mapping.rememberable? -%>
+						<div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+						</div>
+						<% end -%>
+						<div><%= f.submit "Sign in" %></div>
+						<% end %>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">

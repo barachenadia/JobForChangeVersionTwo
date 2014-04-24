@@ -1,136 +1,102 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-	<div id="header_navbar" class="container">
-					
-							    			<!-- ==== LOGO  === -->
-								 
+<div class="nav_bar"  style="background-color:#1DB36B; height:-18px">
+
+
+
+		<!-- ==== LOGO  === -->
+
 		
 		<a href=<%=root_path%>><%= image_tag("logo2.png", :alt => "", :id => "", a: "#") %></a>
 
-		                                <!-- ==== end LOGO  === -->
+		<!-- ==== end LOGO  === -->
 
 
-								                                        <!-- ===  navbar If candidate signin === -->
-						        
+		<!-- ===  navbar If candidate signin === -->
+
 
 		<% if candidate_signed_in? %>
-		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
-			<a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-				<%= "Bonjour #{current_candidate.email}" %><span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Profil', "/profil") %></li>
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Annonces Favorites</a></li>
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Candidatures</a></li>
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %></a></li>
-			</ul>
-		</div>
-                                                                         <!-- === end navbar if candidate signin === -->
 
 
-                                                                         <!-- ===  navbar if campany signin === -->
+		<div id="menu" style="float:right">
+				<ul>	
+					
+					<li><a href="#"><%= "Bonjour #{current_candidate.email}" %></a>
+						<ul>
+							<li><a > <%= link_to('Profil', "/profil") %></a></li>
+							<li><a >Annonces Favorites  </a></li>
+							<li><a > Candidatures</a></li>
+							<li><a >Annonces Favorites  </a></li>
+							<li><a ><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %>  </a></li>
+
+
+						</ul>
+					</li>
+					
+				</ul>
+			</div>   
+
+		
+		
+
+		<!-- === end navbar if candidate signin === -->
+
+
+		<!-- ===  navbar if campany signin === -->
 
 		<% elsif company_signed_in? %>
-		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
-			<a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-				<%= "Bonjour #{current_company.email}" %><span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Profil', "/profil") %></li>
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Mes annonces', "") %></li>
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_company_session_path, method: :delete) %></a></li>
-			</ul>
-		</div>
-                                                                        <!-- === end navbar if campany signin === -->
+
+		<div id="menu" style="float:right">
+				<ul>	
+					
+					<li><a href="#"><%= "Bonjour #{current_company.email}" %></a>
+						<ul>
+							<li><a > <%= link_to('Profil', "/profil") %></a></li>
+							<li><a ><%= link_to('Mes annonces', "") %></a></li>
+							<li><a ><%= link_to("Déconnexion", destroy_company_session_path, method: :delete) %> </a></li>
+
+
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		
+		<!-- === end navbar if campany signin === -->
 
 
 
-                                                                             <!-- ===  navbar page home === -->
+		<!-- ===  navbar page home === -->
 
 		<% else %>
+		<div style="float:right" >
+			<div id="menu">
+				<ul>
+					<li><a href=<%=root_path%> >HOME</a></li>
+					<li><a href="#">Connexion</a>
+						<ul>
+							<li><a href="#myModal_candidat"  data-toggle="modal">Candidat</a></li>
+							<li><a href="#myModal_entreprise"  data-toggle="modal">Entreprise</a></li>		
+						</ul>
+					</li>
+					<li><a href="#">Inscription</a>
+						<ul>
+							<li><a > <%= link_to('Candidat', new_candidate_registration_path) %></a></li>
+							<li><a ><%= link_to('Entreprise', new_company_registration_path) %>  </a></li>
 
-		<div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
-			<a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">Inscrivez vous gratuitement !<span class="caret"></span></a>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Candidat', new_candidate_registration_path) %></li>
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Entreprise', new_company_registration_path) %></li>
-		</div>
-
-		<div  class="connexion_button btn btn-default btn-lg navbar-btn navbar-right dropdown">
-			<a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-				Se connecter<span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_company">Entreprise</a></li>
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_candidat">Candidat</a></li>
-			</ul>
-		</div>
-		<% end %>
-
-		                                              
-		
-		<ul id="header_ul" class="list-inline navbar-text navbar-right">
-			<li><a href=<%=root_path%>><%= image_tag("home-icon2.png", :alt => "home", :id => "home_image") %></a></li>
-		</div>
-	</nav>
-                                                            <!-- ===  end navbar page home === -->                      
-	
-
-
-                                                            <!-- === modal signin  candidate && entreprise === -->
-	                                                        
-	                                                        <!--=== Modal entreprise ===-->
-	
-	<div class="modal fade" id="modal_connexion_company" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div id="first_modal_header" class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Connexion entreprise:</h4>
-				</div>
-
-				<div class="modal-body">
-					<div class="form_block">
-						<%= form_for(:company, :url => session_path(:company)) do |f| %>
-						<div><%= f.label :email %><br />
-							<%= f.email_field :email, :autofocus => true %>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>    
+			<!-- Modal HTML -->
+			<div id="myModal_candidat" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content" style="margin-top:300px">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Connexion autant candidat</h4>
 						</div>
-						<div><%= f.label :password %><br />
-							<%= f.password_field :password %>
-						</div>
-						<% if devise_mapping.rememberable? -%>
-						<div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
-						</div>
-						<% end -%>
-						<div><%= f.submit "Sign in" %></div>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-                                                                      <!--=== end Modal entreprise ===-->
-	                                                                 
-
-	                                                                  <!--=== Modal candidat ===-->
-
-	<div class="modal fade" id="modal_connexion_candidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div id="first_modal_header" class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Connexion candidat:</h4>
-				</div>
-
-				<div class="modal-body">
-					<div class="form_block">
-						<%= link_to "Sign in with Linkedin", candidate_omniauth_authorize_path(:linkedin) %>
+						<div class="modal-body">
+							<%= link_to "Sign in with Linkedin", candidate_omniauth_authorize_path(:linkedin) %>
 						<%= form_for(:candidate, :url => session_path(:candidate)) do |f| %>
 						<div><%= f.label :email %><br />
 							<%= f.email_field :email, :autofocus => true %>
@@ -144,10 +110,48 @@
 						<% end -%>
 						<div><%= f.submit "Sign in" %></div>
 						<% end %>
+						</div>
+
 					</div>
 				</div>
 			</div>
+
+			<div id="myModal_entreprise" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content" style="margin-top:300px">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Connexion autant entreprise</h4>
+						</div>
+						<div class="modal-body">
+							<%= form_for(:company, :url => session_path(:company)) do |f| %>
+							<div><%= f.label :email %><br />
+								<%= f.email_field :email, :autofocus => true %>
+							</div>
+							<div><%= f.label :password %><br />
+								<%= f.password_field :password %>
+							</div>
+							<% if devise_mapping.rememberable? -%>
+							<div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+							</div>
+							<% end -%>
+							<div><%= f.submit "Sign in" %></div>
+							<% end %>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<% end %>
+
+
+
+			
 		</div>
 	</div>
-                                                               <!--=== end Modal candidat ===-->
-                                                               <!-- === end modal signin  candidate && entreprise === -->
+	<!-- ===  end navbar page home === -->                      
+	
+
+
+	
