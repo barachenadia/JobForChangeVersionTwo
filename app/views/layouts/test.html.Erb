@@ -54,3 +54,78 @@
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+<!-- Input login -->
+
+<%= link_to "Sign in with Linkedin", candidate_omniauth_authorize_path(:linkedin) %>
+            <%= form_for(:candidate, :url => session_path(:candidate)) do |f| %>
+            <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true %>
+            </div>
+            <div><%= f.label :password %><br />
+              <%= f.password_field :password %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            </div>
+            <% end -%>
+            <div><%= f.submit "Sign in" %></div>
+            <% end %>
+
+
+
+    
+
+<div>
+          <%= form_for(:candidate, :url => session_path(:candidate)) do |f| %>
+                    <div>
+                      <%= f.label :email , class:".user_login label" %> <br /> 
+                        <%= f.email_field :email, :autofocus => true %>
+                    </div>
+                    <div><%= f.label :password %><br />
+                        <%= f.password_field :password %>
+                    </div>
+                       <% if devise_mapping.rememberable? -%>
+                          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+                       <% end -%>
+
+           <div class="action_btns">
+           <div class="one_half">
+            <%= f.submit "Login", class:"btn .btn_red", style:"height: 26px;padding-top: 2px;" %>
+          </div>
+          
+        </div>
+            
+            <% end %>
+        </div>
+
+
+
+
+
+        <form class="form-horizontal">
+    <div class="form-group">
+        <label for="inputEmail" class="control-label col-xs-2">Email</label>
+        <div class="col-xs-10">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword" class="control-label col-xs-2">Password</label>
+        <div class="col-xs-10">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>
