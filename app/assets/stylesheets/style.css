@@ -156,12 +156,16 @@ img#change {
 }
 
 #row_newsletter {
-  margin-top: 115px;
+  margin-top: 23px;
+  margin-left: 10px;
   margin-bottom: 90px;
 }
 
 #input_email {
   color: #413E3E;
+  padding-left:61px;
+  padding-top: 7px;
+
 }
 
 #input_email {
@@ -201,7 +205,7 @@ img#change {
 
 #menu
 {
-   margin-top: 40px;
+   margin-top: 60px;
   margin-right: 78px;
   font-size: 16px;
 }
@@ -244,7 +248,10 @@ img#change {
   color: #FF9900
  }
 
- 
+ #logo{
+  margin-top: 19px;
+    margin-left: 74px;
+ }
 .popupBody {padding:20px;}
 
 
@@ -264,3 +271,5 @@ img#change {
 
 .btn:hover {background: #0075AD;color: white;}
 .btn_red:hover {background: #0075AD;}
+
+.btn-orange{background-color: #FF9900}
