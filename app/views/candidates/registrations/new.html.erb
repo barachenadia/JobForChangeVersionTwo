@@ -1,18 +1,20 @@
-<h2>Sign up Candidat</h2>
+<h2>Insription Candidat</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= f.email_field :email, :autofocus => true , class:"form-control inputEmail", style:"width:30%"%></div>
 
   <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.password_field :password , class:"form-control inputEmail" , style:"width:30%"%></div>
 
   <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.password_field :password_confirmation, class:"form-control inputEmail" , style:"width:30%" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+
+  <div><%= f.submit "Sign up", class:"btn .btn_red", style:"height: 26px;padding-top: 2px;margin-top: 11px;" %></div>
 <% end %>
 
+<p style="margin-left: 7%;margin-top: 1%;">Vous etes déjà inscrit ?</p>
 <%= render "devise/shared/links" %>

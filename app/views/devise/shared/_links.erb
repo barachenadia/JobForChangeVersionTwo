@@ -1,7 +1,7 @@
- <form class="form-horizontal">
+ <form class="form-horizontal" style="margin-left: 15px;">
  	<div class="form-group">
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name) , class:"btn .btn_red control-label col-xs-2", style:"height: 26px;padding-top: 2px;padding-right: 54px;" %><br />
+  <%= link_to "Sign in", new_session_path(resource_name) , class:"btn .btn_red control-label col-xs-2", style:"height: 26px;padding-top: 2px;padding-right: 65px;width: 14%" %><br />
 <% end -%>
 <div class="col-xs-10" style="margin-top: -20px;">
 <%- if devise_mapping.omniauthable? %>
