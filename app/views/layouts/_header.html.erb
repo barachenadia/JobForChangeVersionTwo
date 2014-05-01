@@ -1,203 +1,186 @@
-<div class="nav_bar"  style="background-color:white; height:-18px">
+
+<div class="header" style="border:1px solid red; height:100px;background-color:rgba(0,0,0,0.2)">
+  
+
+  <a href=<%=root_path%>><%= image_tag("logo2.png", :alt => "", :id => "", a: "#", :style => "margin-top: 2%;margin-left: 3%;
+") %></a>
+   
+ 
+ 
+                              
+
+                                    <!-- =========== Sign in candidate ====================-->
+                                
+  
+  <% if candidate_signed_in? %>
+    <div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
+      <a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+        <%= "Bonjour #{current_candidate.email}" %><span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Profil', "/profil") %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Annonces Favorites</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target="">Candidatures</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %></a></li>
+      </ul>
+    </div>
+                                       
+                                              <!-- =========== Sign in company ====================-->
+                                <!--============================================================================== -->
 
 
 
-	<!-- ==== LOGO  === -->
+    <% elsif company_signed_in? %>
 
-	
-	<a href=<%=root_path%>><%= image_tag("logo2.png", :alt => "", :id => "logo", a: "#") %></a>
+    <div  class="connexion_button btn btn-info btn-lg navbar-btn navbar-right dropdown">
+      <a id="inscription_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+        <%= "Bonjour #{current_company.email}" %><span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Profil', "/profil") %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Mes annonces', "") %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to("Déconnexion", destroy_company_session_path, method: :delete) %></a></li>
+      </ul>
+    </div>
+    
 
-	<!-- ===  navbar If candidate signin === -->
-
-
-	<% if candidate_signed_in? %>
-
-
-	<div id="menu" style="float:right">
-		<ul>	
-			
-			<li><a href="#"><%= "Bonjour #{current_candidate.email}" %></a>
-				<ul>
-					<li><a > <%= link_to('Profil', "/profil") %></a></li>
-					<li><a >Annonces Favorites  </a></li>
-					<li><a > Candidatures</a></li>
-					<li><a >Annonces Favorites  </a></li>
-					<li><a ><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %>  </a></li>
+                                             <!-- =========== Home page====================-->
+                                <!--============================================================================== -->
+    <% else %>
 
 
-				</ul>
-			</li>
-			
-		</ul>
-	</div>   
-	<!-- ===  navbar if campany signin === -->
+<!-- <div class="navigation " style="position: absolute;margin-top: -79px; margin-left: 1063px; ">
+    <div  class="connexion_button  navbar-right dropdown"  >  
+      <a id="inscription_button" data-toggle="dropdown" data-target="#" href="/page.html" >
 
-	<% elsif company_signed_in? %>
-
-	<div id="menu" style="float:right">
-		<ul>	
-			
-			<li><a href="#"><%= "Bonjour #{current_company.email}" %></a>
-				<ul>
-					<li><a > <%= link_to('Profil', "/profil") %></a></li>
-					<li><a ><%= link_to('Mes annonces', "") %></a></li>
-					<li><a ><%= link_to("Déconnexion", destroy_company_session_path, method: :delete) %> </a></li>
+        Creer un compte
+        
+        <span class="caret"></span></a>
+      
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 123px;">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Candidat', new_candidate_registration_path) %></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="" data-target=""><%= link_to('Entreprise', new_company_registration_path) %></li>
+    </div>
 
 
-				</ul>
-			</li>
-			
-		</ul>
-	</div>
-	
+    <div  class="connexion_button  navbar-right dropdown" style="position: absolute;margin-left: -132px;">
+      <a id="se_connecter_button" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+        
+       Se connecter
 
-	<!-- ===  navbar page home === -->
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 123px;margin-right: 38px">
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_company">Entreprise</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal_connexion_candidat">Candidat</a></li>
+      </ul>
+    </div>
+    
+  </div>
 
-	<% else %>
-	<div style="float:right" >
-		<div id="menu">
-			<ul>
-				<li><a href=<%=root_path%> style="margin-right: -13px;"><i class="fa fa-home" id="picto"></i> Home</a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-log-in"  id="picto"></span> Connexion</a>
-					<ul>
-						<li><a href="#myModal_candidat"  data-toggle="modal">Candidat</a></li>
-						<li><a href="#myModal_entreprise"  data-toggle="modal">Entreprise</a></li>		
-					</ul>
-				</li>
-				<li><a href="#"><i class="fa fa-pencil" id="picto" ></i> Inscription</a>
-					<ul>
-						<li><a > <%= link_to('Candidat', new_candidate_registration_path) %></a></li>
-						<li><a ><%= link_to('Entreprise', new_company_registration_path) %>  </a></li>
+     -->
 
-					</ul>
-				</li>
-				
-			</ul>
-		</div>    
-		<!-- Modal HTML -->
-		<div id="myModal_candidat" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content" style="margin-top:300px">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title"> <center><i class="fa fa-user "></i> Connexion candidat</center></h4>
-					</div>
-					
-					<div class="modal-body">					
-				      <section class="popupBody">
-			              
-			              <div class="social_login">
-				               <div class="">
-					               <a href=<%= candidate_omniauth_authorize_path(:linkedin) %> class="social_box fb">
-						               <span class="icon"><i class="fa fa-linkedin-square fa-2x" style="color:#007BAD"></i></span>
-						               <span class="icon_title">Connect with Linkedin</span>	
-					              </a>     	
-				               </div>			
-			             </div>
-		              
-                         <form class="form-horizontal">
-                            <%= form_for(:candidate,class:"form-horizontal" ,:url => session_path(:candidate)) do |f| %>
-                              <div class="form-group">
-                                   <%= f.label :email , class:"control-label col-xs-2" %>
-                                  <div class="col-xs-10">
-                                   <%= f.email_field :email, :autofocus => true, class:"form-control inputEmail"%>
-                                  </div>
-                            </div>
-                            <div class="form-group">
-                    	         <%= f.label :password , class:".control-label col-xs-2" %>
-                    	         <div class="col-xs-10">
-                                 <%= f.password_field :password,class:"form-control inputEmail" %>
-                                 </div>
-                           </div>
-                           <div class="form-group">
-                    	        <div class="col-xs-offset-2 col-xs-10">
-                               <% if devise_mapping.rememberable? -%>
-                                   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-                               <% end -%>
-                              </div>
-                              	<div class="col-xs-offset-2 col-xs-10">
-                                    <div class="action_btns">
-                                        <div class="one_half">
-                                             <%= f.submit "Login", class:"btn .btn_red", style:"height: 26px;padding-top: 2px;" %>
-                                        </div>
-                                    </div>   
-                                </div>
-                           </div>
+<div >
+    <div id="menu" style="float:right" >
+      <ul>
+        <li><a href=<%=root_path%> style="margin-right: -13px;"><i class="fa fa-home" id="picto"></i> Home</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"  id="picto"></span> Connexion</a>
+          <ul>
+            <li><a href="#modal_connexion_candidat"  data-toggle="modal">Candidat</a></li>
+            <li><a href="#modal_connexion_company"  data-toggle="modal">Entreprise</a></li>    
+          </ul>
+        </li>
+        <li><a href="#"><i class="fa fa-pencil" id="picto" ></i> Inscription</a>
+          <ul>
+            <li><a > <%= link_to('Candidat', new_candidate_registration_path) %></a></li>
+            <li><a ><%= link_to('Entreprise', new_company_registration_path) %>  </a></li>
+
+          </ul>
+        </li>
+        
+      </ul>
+    </div> 
+    </div> 
+   
+
+
+  <!-- Modal entreprise-->
+  <div class="modal fade" id="modal_connexion_company" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="first_modal_header" class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"><center><i class="fa fa-building-o"> Connexion entreprise</i></center></h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form_block">
+            <%= form_for(:company, :url => session_path(:company)) do |f| %>
+            <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true %>
+            </div>
+            <div><%= f.label :password %><br />
+              <%= f.password_field :password %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            </div>
+            <% end -%>
+            <div><%= f.submit "Sign in" %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal candidat-->
+  <div class="modal fade" id="modal_connexion_candidat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="first_modal_header" class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"><center><i class="fa fa-user "></i> Connexion candidat</center></h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form_block">
+
+          	     <div class="social_login">
+                       <div class="">
+                         <a href=<%= candidate_omniauth_authorize_path(:linkedin) %> class="social_box fb">
+                           <span class="icon"><i class="fa fa-linkedin-square fa-2x" style="color:#007BAD"></i></span>
+                           <span class="icon_title">Connect with Linkedin</span>  
+                        </a>      
+                       </div>     
+                   </div>
             
-                        <% end %>
-                    </form>
-		           </section>
-			    </div>
-			</div>
-		</div>
-	</div>
+            <%= form_for(:candidate, :url => session_path(:candidate)) do |f| %>
+            <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true %>
+            </div>
+            <div><%= f.label :password %><br />
+              <%= f.password_field :password %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            </div>
+            <% end -%>
+            <div><%= f.submit "Sign in" %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end -%>
 
-
-
-
-
-
-<div id="myModal_entreprise" class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content" style="margin-top:300px">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title"><center><i class="fa fa-building-o"> Connexion entreprise</i></center></h4>
-					</div>
-					
-
-					<div class="modal-body">					
-				      <section class="popupBody">
-	
-                         <form class="form-horizontal">
-                          <%= form_for(:company, :url => session_path(:company)) do |f| %>
-                              <div class="form-group">
-                                   <%= f.label :email , class:".control-label col-xs-2 " %>
-                                  <div class="col-xs-10">
-                                   <%= f.email_field :email, :autofocus => true, class:"form-control inputEmail"%>
-                                  </div>
-                            </div>
-                            <div class="form-group">
-                    	         <%= f.label :password , class:".control-label col-xs-2" %>
-                    	         <div class="col-xs-10">
-                                 <%= f.password_field :password,class:"form-control inputEmail" %>
-                                 </div>
-                           </div>
-                           <div class="form-group">
-                    	        <div class="col-xs-offset-2 col-xs-10">
-                               <% if devise_mapping.rememberable? -%>
-                                   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-                               <% end -%>
-                              </div>
-                              	<div class="col-xs-offset-2 col-xs-10">
-                                    <div class="action_btns">
-                                        <div class="one_half">
-                                             <%= f.submit "Login", class:"btn .btn_red", style:"height: 26px;padding-top: 2px;" %>
-                                        </div>
-                                    </div>   
-                                </div>
-                           </div>
-            
-                        <% end %>
-                    </form>
-		           </section>
-			    </div>
-
-				
-
-
-				</div>
-			</div>
-		</div>
-
-		<% end %>
-
-
-
-		
-	</div>
 </div>
-<!-- ===  end navbar page home === -->                      
-
-
 

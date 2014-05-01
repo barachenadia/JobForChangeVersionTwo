@@ -147,3 +147,359 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<!-- header marche pas  -->
+
+<div class="nav_bar"  style="background-color:white; height:-18px">
+
+
+
+  <!-- ==== LOGO  === -->
+
+  
+  <a href=<%=root_path%>><%= image_tag("logo2.png", :alt => "", :id => "logo", a: "#") %></a>
+
+  <!-- ===  navbar If candidate signin === -->
+
+
+  <% if candidate_signed_in? %>
+
+
+  <div id="menu" style="float:right">
+    <ul>  
+      
+      <li><a href="#"><%= "Bonjour #{current_candidate.email}" %></a>
+        <ul>
+          <li><a > <%= link_to('Profil', "/profil") %></a></li>
+          <li><a >Annonces Favorites  </a></li>
+          <li><a > Candidatures</a></li>
+          <li><a >Annonces Favorites  </a></li>
+          <li><a ><%= link_to("Déconnexion", destroy_candidate_session_path, method: :delete) %>  </a></li>
+
+
+        </ul>
+      </li>
+      
+    </ul>
+  </div>   
+  <!-- ===  navbar if campany signin === -->
+
+  <% elsif company_signed_in? %>
+
+  <div id="menu" style="float:right">
+    <ul>  
+      
+      <li><a href="#"><%= "Bonjour #{current_company.email}" %></a>
+        <ul>
+          <li><a > <%= link_to('Profil', "/profil") %></a></li>
+          <li><a ><%= link_to('Mes annonces', "") %></a></li>
+          <li><a ><%= link_to("Déconnexion", destroy_company_session_path, method: :delete) %> </a></li>
+
+
+        </ul>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+  <!-- ===  navbar page home === -->
+
+  <% else %>
+  <div style="float:right" >
+    <div id="menu">
+      <ul>
+        <li><a href=<%=root_path%> style="margin-right: -13px;"><i class="fa fa-home" id="picto"></i> Home</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"  id="picto"></span> Connexion</a>
+          <ul>
+            <li><a href="#myModal_candidat"  data-toggle="modal">Candidat</a></li>
+            <li><a href="#myModal_entreprise"  data-toggle="modal">Entreprise</a></li>    
+          </ul>
+        </li>
+        <li><a href="#"><i class="fa fa-pencil" id="picto" ></i> Inscription</a>
+          <ul>
+            <li><a > <%= link_to('Candidat', new_candidate_registration_path) %></a></li>
+            <li><a ><%= link_to('Entreprise', new_company_registration_path) %>  </a></li>
+
+          </ul>
+        </li>
+        
+      </ul>
+    </div> 
+    </div>   
+    <!-- Modal HTML -->
+    <div id="myModal_candidat" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content" style="margin-top:300px">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"> <center><i class="fa fa-user "></i> Connexion candidat</center></h4>
+          </div>
+          
+          <div class="modal-body">          
+              <section class="popupBody">
+                    
+                    <div class="social_login">
+                       <div class="">
+                         <a href=<%= candidate_omniauth_authorize_path(:linkedin) %> class="social_box fb">
+                           <span class="icon"><i class="fa fa-linkedin-square fa-2x" style="color:#007BAD"></i></span>
+                           <span class="icon_title">Connect with Linkedin</span>  
+                        </a>      
+                       </div>     
+                   </div>
+                  
+                         <form class="form-horizontal">
+                            <%= form_for(:candidate,class:"form-horizontal" ,:url => session_path(:candidate)) do |f| %>
+                              <div class="form-group">
+                                   <%= f.label :email , class:"control-label col-xs-2" %>
+                                  <div class="col-xs-10">
+                                   <%= f.email_field :email, :autofocus => true, class:"form-control inputEmail"%>
+                                  </div>
+                            </div>
+                            <div class="form-group">
+                               <%= f.label :password , class:".control-label col-xs-2" %>
+                               <div class="col-xs-10">
+                                 <%= f.password_field :password,class:"form-control inputEmail" %>
+                                 </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-xs-offset-2 col-xs-10">
+                               <% if devise_mapping.rememberable? -%>
+                                   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                               <% end -%>
+                              </div>
+                                <div class="col-xs-offset-2 col-xs-10">
+                                    <div class="action_btns">
+                                        <div class="one_half">
+                                             <%= f.submit "Login", class:"btn .btn_red", style:"height: 26px;padding-top: 2px;" %>
+                                        </div>
+                                    </div>   
+                                </div>
+                           </div>
+            
+                        <% end %>
+                    </form>
+               </section>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<div id="myModal_entreprise" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content" style="margin-top:300px">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><center><i class="fa fa-building-o"> Connexion entreprise</i></center></h4>
+          </div>
+          
+
+          <div class="modal-body">          
+              <section class="popupBody">
+  
+                         <form class="form-horizontal">
+                          <%= form_for(:company, :url => session_path(:company)) do |f| %>
+                              <div class="form-group">
+                                   <%= f.label :email , class:".control-label col-xs-2 " %>
+                                  <div class="col-xs-10">
+                                   <%= f.email_field :email, :autofocus => true, class:"form-control inputEmail"%>
+                                  </div>
+                            </div>
+                            <div class="form-group">
+                               <%= f.label :password , class:".control-label col-xs-2" %>
+                               <div class="col-xs-10">
+                                 <%= f.password_field :password,class:"form-control inputEmail" %>
+                                 </div>
+                           </div>
+                           <div class="form-group">
+                              <div class="col-xs-offset-2 col-xs-10">
+                               <% if devise_mapping.rememberable? -%>
+                                   <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                               <% end -%>
+                              </div>
+                                <div class="col-xs-offset-2 col-xs-10">
+                                    <div class="action_btns">
+                                        <div class="one_half">
+                                             <%= f.submit "Login", class:"btn .btn_red", style:"height: 26px;padding-top: 2px;" %>
+                                        </div>
+                                    </div>   
+                                </div>
+                           </div>
+            
+                        <% end %>
+                    </form>
+               </section>
+          </div>
+
+        
+
+
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+
+
+
+    
+  </div>
+</div>
+<!-- ===  end navbar page home === -->                      
+
+
+
+<!-- Home page ne marche pas -->
+
+  <center>
+<div id="home_row" class="row" style="background:rgba(0,0,0,0.5);width:78%">
+
+  <div class="col-md-6" >
+    
+             <div class="col-md-8" style="margin-left: 108px;">
+                <i class="fa fa-user fa-3x" style="margin-left: 0px;margin-bottom: 9px; color:#FF9900"></i>
+                 <div class="row">
+                   <div class="col-md-12" style="margin-bottom: 12px;;color:white; font-size:16px; font-weight:bold;">
+                    Vous  êtes un candidat ?
+                   </div>   
+                 </div>                
+               </div>
+       
+    
+    <div class="col-md-6 col-md-offset-4">
+      <%= link_to 'Déposer une annonce', "#", :id => "deposer_annonce", class:"btn  ", style: "
+    background-color: #FF9900;
+"%>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+     <div class="col-md-8" style="margin-left: -26px;">
+                <i class="fa fa-building-o fa-3x" style="margin-left: -13px;margin-bottom: 9px;color:#8F047A"></i>
+                 <div class="row">
+                   <div class="col-md-12" style="margin-bottom: 12px;color:white; font-size:16px; font-weight:bold;">
+                    Vous  êtes une entreprise ?
+                   </div>   
+                 </div>                
+               </div>
+  
+    <div class="col-md-6 ">
+      <div>
+        
+        <%= link_to 'Consulter les annonces', "#", :id => "Consulter_annonce" ,class:"btn", style: "
+    background-color: #8F047A;
+"%>
+      </div>
+    </div>
+  </div><!--end col-md-6-->
+
+  </div> <!--row end-->
+
+
+
+
+<div  id="row_newsletter" class="row">
+  <form role="form" style=" margin-left: 91px;">
+    <div class="col-md-4">
+      <label id="input_email" for="input_email">Inscrivez vous à la newsletter</label>
+      
+    </div>
+    <div class="col-md-4">
+      <input type="email" class="form-control" id="input_email" placeholder="Enter email">
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'envoyer', "#", :id => "" ,class:"btn", style: "
+    background-color: #8F047A; margin-right: 277px; height: 33px;padding-top: 5px;
+"%>
+    </div>
+  </form>
+</div>
+
+
+</center>
+
+
+    
+<!-- candiate/registration/new -->
+
+
+<div >
+
+ <form class="form-horizontal">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <h2>Inscription candidat</h2>
+    <div class="form-group">
+        <%= f.label :email, class:"control-label col-xs-2", style: "text-align:right" %>
+        <div class="col-xs-10">
+            <%= f.email_field :email, :autofocus => true,class:"form-control inputEmail" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :password,class:".control-label col-xs-2", style: "text-align:right" %>
+        <div class="col-xs-10">
+            <%= f.password_field :password,class:"form-control inputEmail" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :password_confirmation,class:".control-label col-xs-2" %>
+        <div class="col-xs-10">
+            <%= f.password_field :password_confirmation,class:"form-control inputEmail" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <div><%= f.submit "Sign up" , class:"btn .btn_red", style:"height: 26px;padding-top: 2px;" %></div>
+        </div>
+    </div>
+    <% end %>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            Vous  êtes déja inscrit ? <br>
+           <%= render "devise/shared/links" %>
+
+        </div>
+    </div>
+</form>
+
+</div>
+
+<!-- entreprise /registration/new -->
+
+
+<form class="form-horizontal">
+<h2>Inscription Entreprise</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
+<div class="form-group">
+      <%= f.label :email , class:"control-label col-xs-2", style: "text-align:right" %>
+      <div class="col-xs-10">
+    <%= f.email_field :email, autofocus: true ,class:"form-control inputEmail"%>
+    </div>
+</div>
+<div class="form-group">
+      <%= f.label :password , class:"control-label col-xs-2", style: "text-align:right"%>
+      <div class="col-xs-10">
+    <%= f.password_field :password, autocomplete: "off",class:"form-control inputEmail" %>
+      </div>
+</div>
+<div class="form-group">
+      <%= f.label :password_confirmation , class:"control-label col-xs-2", style: "text-align:right" %>
+      <div class="col-xs-10">
+    <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control inputEmail" %>
+      </div>
+</div>
+<div class="form-group">
+  <div class="col-xs-offset-2 col-xs-10">
+  <%= f.submit "Sign up" , class:"btn .btn_red", style:"height: 26px;padding-top: 2px;"%>
+    </div>
+</div>
+<% end %>
+
+</form>
