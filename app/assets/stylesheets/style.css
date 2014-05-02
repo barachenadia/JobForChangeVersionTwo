@@ -202,10 +202,12 @@ img#change {
 
 
                                   /*============================ Nadia CSS==============================*/
-
+a{
+  color: black !important
+}
 #menu
 {
-   margin-top:-4%;
+   margin-top:-2%;
   margin-right: 34px;
   font-size: 16px;
 }

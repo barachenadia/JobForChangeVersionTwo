@@ -1,60 +1,66 @@
-<!-- 
+<center>
+<div id="home_row" class="row" style="background:rgba(0,0,0,0.5);width:78%; margin-top:15%">
 
-
-<div id="carre">
-    	<div> <%= image_tag("rubbanorange.png", :alt => "", :id => "rubban", a: "#",) %></div>
-       <center>
-       <div class="container" style="width:891px">
-        <div class="row">
-            <div class="col-md-4" style="margin-top: 25px;margin-left: 83px;">
-            	<p style="color:#FF9900"><i class=" fa fa-user fa-4x"></i> </p>
-            	
-            	<p style="font-family: 'Source Sans Pro', 'sans-serif';font-size:17px"> <strong>Vous êtes candidat ?</strong></p>
-            	<div class="action_btns">
-					
-				<div class="one_half last"><a href="#" class="btn btn_orange" style="margin-left: 36px;width: 170px"><center style="margin-left: -14px;color:white">Consulter nos annonces</center></a></div>
-					</div>
-						
-            </div>
-            <div class="col-md-4" style="margin-top: 25px;">
-            	<p style="color:#8F047A"><i class="fa fa-building-o fa-4x"></i></p>
-            	<p style="font-family: 'Source Sans Pro', 'sans-serif';font-size:17px"><strong>Vous êtes une entreprise ?</strong> </p>
-            	<div class="action_btns">
-						
-				<div class="one_half last"><a href="#" class="btn btn_red" style="margin-left: 36px;width: 170px"><center style="margin-left: -5px; color:white">Deposer une annonce</center></a></div>
-					</div>
-            </div>
-            
-    	</div>
+  <div class="col-md-6" >
+    
+             <div class="col-md-8" style="margin-left: 108px;">
+                <i class="fa fa-user fa-3x" style="margin-left: 0px;margin-bottom: 9px; color:#FF9900"></i>
+                 <div class="row">
+                   <div class="col-md-12" style="margin-bottom: 12px;;color:white; font-size:16px; font-weight:bold;">
+                    Vous  êtes un candidat ?
+                   </div>   
+                 </div>                
+               </div>
+       
+    
+    <div class="col-md-6 col-md-offset-4">
+      <%= link_to 'Déposer une annonce', "#", :id => "deposer_annonce", class:"btn  ", style: "
+    background-color: #FF9900;
+"%>
     </div>
+  </div>
+
+  <div class="col-md-6">
+     <div class="col-md-8" style="margin-left: -26px;">
+                <i class="fa fa-building-o fa-3x" style="margin-left: -13px;margin-bottom: 9px;color:#8F047A"></i>
+                 <div class="row">
+                   <div class="col-md-12" style="margin-bottom: 12px;color:white; font-size:16px; font-weight:bold;">
+                    Vous  êtes une entreprise ?
+                   </div>   
+                 </div>                
+               </div>
+  
+    <div class="col-md-6 ">
+      <div>
+        
+        <%= link_to 'Consulter les annonces', "#", :id => "Consulter_annonce" ,class:"btn", style: "
+    background-color: #8F047A;
+"%>
+      </div>
+    </div>
+  </div><!--end col-md-6-->
+
+  </div> <!--row end-->
+
+
+
+
+<div  id="row_newsletter" class="row">
+  <form role="form" style=" margin-left: 91px;">
+    <div class="col-md-4">
+      <label id="input_email" for="input_email">Inscrivez vous à la newsletter</label>
+      
+    </div>
+    <div class="col-md-4">
+      <input type="email" class="form-control" id="input_email" placeholder="Enter email">
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'envoyer', "#", :id => "" ,class:"btn", style: "
+    background-color: #8F047A; margin-right: 277px; height: 33px;padding-top: 5px;
+"%>
+    </div>
+  </form>
+</div>
+
+
 </center>
-
-</div>
-
-
-
-
-    <div class="container" style="margin-left:50px; margin-top:20px">
-
-        <div class="row" style="margin-left: 220px;">
-
-            <div class="col-md-4" style="padding-top: 2px;padding-left: 30px;">
-            	<label style="color:black;font-family: 'Source Sans Pro', 'sans-serif';font-size:17px">INSCRIVEZ-VOUS A LA NEWSLETTER</label>
-            </div>
-
-            <div class="col-md-4">
-            	
-            	<input type="email" />
-            	<a href="#" class="btn btn_noir" style="padding-top: 1px;padding-bottom: 3px;color:white">envoyer</a>
-            </div>
-            <div class="col-md-4"></div>
-
-   
-
-        </div>
-
-    </div>
-
-</div>
-
- -->
